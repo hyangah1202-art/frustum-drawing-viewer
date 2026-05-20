@@ -760,13 +760,19 @@ input {
   }
 }
 
+@media (max-width: 700px) {
+  .floating-toggle-panel {
+    display: none;
+  }
+}
+
 @media (max-width: 560px) {
   .app-shell {
-    grid-template-rows: minmax(760px, 78vh) auto;
+    grid-template-rows: minmax(720px, 100svh) auto;
   }
 
   .viewer-section {
-    min-height: 760px;
+    min-height: 720px;
   }
 
   .dimension-controls {
@@ -791,12 +797,16 @@ input {
   }
 
   .drawing2d-shell {
-    display: block;
-    padding: 166px 10px 330px 142px;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 272px 10px 24px;
+    overflow-x: hidden;
+    overflow-y: auto;
   }
 
   .drawing2d-svg {
-    width: 760px;
+    width: 100%;
     max-width: none;
     max-height: none;
   }
@@ -811,14 +821,25 @@ input {
   .measure-toolbox {
     top: 166px;
     left: 10px;
-    width: 118px;
+    right: 10px;
+    width: auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 5px;
+  }
+
+  .measure-toolbox-title {
+    grid-column: 1 / -1;
+  }
+
+  .measure-toolbox button {
+    grid-template-columns: 22px 1fr;
+    gap: 6px;
+    min-height: 32px;
+    padding: 4px 7px;
+    font-size: 12px;
   }
 
   .floating-toggle-panel {
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    width: auto;
-    max-height: 260px;
+    display: none;
   }
 }
